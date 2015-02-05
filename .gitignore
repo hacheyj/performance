@@ -7,3 +7,5 @@ Performance/Performance.sln.DotSettings.user
 *.suo
 Performance/Serialization/bin/
 Performance/Serialization/obj/
+Performance/Azure/bin/
+Performance/Azure/obj/

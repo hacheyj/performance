@@ -28,7 +28,7 @@ namespace Performance.Core
             }
             watch.Stop();            
 
-            Debug.WriteLine("{0}: {1:0.#####} ms/per run", description, (watch.ElapsedMilliseconds / (double)iterations));
+            Console.WriteLine("{0}: {1:0.#####} ms/per run", description, (watch.ElapsedMilliseconds / (double)iterations));
         }
 
         private static void OptimizeTestConditions()

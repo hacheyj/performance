@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Performance.Core", "Perform
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basic", "Basic\Basic.csproj", "{6DD40084-B4BA-425C-9EA3-074A5D812A5B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7E047069-A8B2-401A-BBF6-4DEA8D064B69}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure", "Azure\Azure.csproj", "{E0B34E21-761D-4D5F-A148-28B07C78FAEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +32,10 @@ Global
 		{6DD40084-B4BA-425C-9EA3-074A5D812A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DD40084-B4BA-425C-9EA3-074A5D812A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DD40084-B4BA-425C-9EA3-074A5D812A5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0B34E21-761D-4D5F-A148-28B07C78FAEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0B34E21-761D-4D5F-A148-28B07C78FAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0B34E21-761D-4D5F-A148-28B07C78FAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0B34E21-761D-4D5F-A148-28B07C78FAEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

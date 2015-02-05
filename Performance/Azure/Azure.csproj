@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6DD40084-B4BA-425C-9EA3-074A5D812A5B}</ProjectGuid>
+    <ProjectGuid>{E0B34E21-761D-4D5F-A148-28B07C78FAEB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Basic</RootNamespace>
-    <AssemblyName>Basic</AssemblyName>
+    <RootNamespace>Azure</RootNamespace>
+    <AssemblyName>Azure</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,10 +35,40 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.2\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.2\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.2\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.1.8.0.0\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WindowsAzure.Storage.4.3.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Spatial, Version=5.6.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Spatial.5.6.2\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -53,17 +83,20 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="LinqAndCollectionTests.cs" />
+    <Compile Include="StorageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Performance.Core\Performance.Core.csproj">
       <Project>{0A865928-323F-48A6-8575-965A39F6BBE9}</Project>
       <Name>Performance.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using Microsoft.Hadoop.Avro;
 using Microsoft.Hadoop.Avro.Container;
 using Microsoft.Hadoop.Avro.Schema;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
+using NUnit.Framework;
 using Performance.Core;
 
 namespace Serialization
 {
-    [TestClass]
+    [TestFixture]
     public class SerializationPerformanceTests
     {
         // Portions of the following are based on http://azure.microsoft.com/en-us/documentation/articles/hdinsight-dotnet-avro-serialization/       
@@ -50,7 +50,7 @@ namespace Serialization
             return expected1;
         }
 
-        [TestMethod]
+        [Test]
         public void TestAvroSerializationThroughReflection()
         {
             SensorData sensorData = CreateTestData();
@@ -71,7 +71,7 @@ namespace Serialization
             }, "Avro serialization through reflection", 10000);
         }
 
-        [TestMethod]
+        [Test]
         public void TestAvroSerializeUsingObjectContainersGenericRecord()
         {
             const string schema = @"{
@@ -120,7 +120,7 @@ namespace Serialization
         }
 
 
-        [TestMethod]
+        [Test]
         public void TestJsonSerializationWithWriter()
         {
             SensorData sensorData = CreateTestData();

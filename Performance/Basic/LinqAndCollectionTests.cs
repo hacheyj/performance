@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Performance.Core;
 
 namespace Basic
 {
-    [TestClass]
+    [TestFixture]
     public class LinqAndCollectionTests
     {
         private List<string> CreateSampleList(int size)
@@ -19,7 +19,7 @@ namespace Basic
             return list;
         }
 
-        [TestMethod]
+        [Test]
         public void TestAnyOnList()
         {
             var sampleList = CreateSampleList(40);
@@ -35,7 +35,7 @@ namespace Basic
             }, "Any() (plus increment)", 10000000);
         }
 
-        [TestMethod]
+        [Test]
         public void TestCountFunctionOnList()
         {
             var sampleList = CreateSampleList(40);
@@ -51,7 +51,7 @@ namespace Basic
             }, "Count() > 0 (plus increment)", 10000000);
         }
 
-        [TestMethod]
+        [Test]
         public void TestCountOnList()
         {
             var sampleList = CreateSampleList(40);
