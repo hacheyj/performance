@@ -1,0 +1,9 @@
+Performance/Basic/bin/
+Performance/Basic/obj/
+Performance/packages/
+Performance/Performance.Core/bin/
+Performance/Performance.Core/obj/
+Performance/Performance.sln.DotSettings.user
+*.suo
+Performance/Serialization/bin/
+Performance/Serialization/obj/
