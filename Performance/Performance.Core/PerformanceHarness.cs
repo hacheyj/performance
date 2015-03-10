@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Performance.Core
 {
@@ -31,6 +32,22 @@ namespace Performance.Core
             Console.WriteLine("{0}: {1:0.#####} ms/per run", description, (watch.ElapsedMilliseconds / (double)iterations));
         }
 
+        public static void TestAsync(Func<Task> taskToTest, string description, int iterations, int warmupTimeInMs = 1500)
+        {
+            OptimizeTestConditions();
+
+            WarmupTest(taskToTest, warmupTimeInMs);
+
+            var watch = Stopwatch.StartNew();
+            for (var i = 0; i < iterations; i++)
+            {
+                taskToTest().Wait();
+            }
+            watch.Stop();
+
+            Console.WriteLine("{0}: {1:0.#####} ms/per run", description, (watch.ElapsedMilliseconds / (double)iterations));
+        }
+
         private static void OptimizeTestConditions()
         {
             // Attempt to garbage collect
@@ -53,6 +70,16 @@ namespace Performance.Core
                 actionToTest();
             }
             stopWatch.Stop();   
+        }
+
+        private static void WarmupTest(Func<Task> taskToTest, int warmupTimeInMs)
+        {
+            var stopWatch = Stopwatch.StartNew();
+            while (stopWatch.ElapsedMilliseconds < warmupTimeInMs)
+            {
+                taskToTest().Wait();
+            }
+            stopWatch.Stop();
         }
     }
 }
